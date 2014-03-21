@@ -9,3 +9,5 @@ Then you can add durations like this:
 This widget uses the Joda time library.
 
 This repo has an Eclipse project, and it includes a main class, GanttTest.java. This class is only there for the example code, and can be deleted.
+
+![Gantt Screenshot](https://raw.github.com/dublinus/GanttWidget/master/GanttWidgetSWTScreenshot.png)
