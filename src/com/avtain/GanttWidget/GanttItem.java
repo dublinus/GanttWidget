@@ -81,8 +81,8 @@ public class GanttItem {
 					if(background!= null)e.gc.setBackground(background);
 					e.gc.fillRectangle(0, 0, canvas.getSize().x, canvas.getSize().y);
 					
-					double currentSeconds =new Interval(start, d1).toDuration().getStandardSeconds();
-					double allSeconds =new Interval(start, finish).toDuration().getStandardSeconds(); 
+					double currentSeconds = new Interval(start, d1).toDuration().getStandardSeconds();
+					double allSeconds = new Interval(start, finish).toDuration().getStandardSeconds(); 
 					double percent = currentSeconds / allSeconds;
 					
 					drawPoint(e, percent);
@@ -130,10 +130,16 @@ public class GanttItem {
 		if(percent < 0 || percent > 1) return;
 		GC gc = e.gc;
 		int position = (int) (canvas.getSize().x * percent);
-		//gc.drawLine(position, 0, position, canvas.getSize().y);
-		//Image point = parent.pointImage;
-		//gc.drawImage(point, 0, 0, point.getBounds().x, point.getBounds().y, position, 0, position + 10, canvas.getSize().y);
-		gc.drawRectangle(position - 10, 0, 20, canvas.getSize().y - 1);
+		int vert = 10;
+		int hor = 7;
+		int left = position - hor;
+		int right = position + hor;
+		int center = (int) canvas.getSize().y / 2;
+		int top = center - vert;
+		int bottom = center + vert;
+		
+		gc.setBackground(spanColor);
+		gc.fillPolygon(new int[]{position, top, left, center, position, bottom, right, center});
 	}
 	
 	public ItemType getType() {

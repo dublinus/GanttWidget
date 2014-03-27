@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.ScrollBar;
 import org.joda.time.DateTime;
 
 import com.avtain.GanttWidget.GanttItem.ItemType;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class Gantt extends Composite {
 	
@@ -28,7 +29,9 @@ public class Gantt extends Composite {
 	
 	GanttAxis axis;
 	
-	Image pointImage;
+	private Image pointImage;
+	{ pointImage = SWTResourceManager.getImage("/resources/point_small.png"); }
+	Image getPointImage() { return pointImage; }
 	
 	DateTime start, finish;
 	
