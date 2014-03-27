@@ -1,11 +1,9 @@
 package com.avtain.GanttWidget;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.wb.swt.SWTResourceManager;
 import org.joda.time.DateTime;
 
 import com.avtain.GanttWidget.GanttItem.ItemType;
@@ -34,7 +32,6 @@ public class GanttTest {
 		Display.setAppName("Gantt Test");
 		Display display = Display.getDefault();
 		createContents();
-		shell.setImages(new Image[]{SWTResourceManager.getImage(this.getClass(), "/resources/point.png")});
 		shell.open();
 		shell.layout();
 		while (!shell.isDisposed()) {
@@ -60,7 +57,7 @@ public class GanttTest {
 		gantt.setDates(start, finish);
 		int i = 1;
 		for(DateTime it = new DateTime(start); it.isBefore(finish); it = it.plusDays(1), i++) {
-			gantt.addItem(ItemType.POINT, "Day " + i, it, it.plusDays(3));
+			gantt.addItem(ItemType.SPAN, "Day " + i, it, it.plusDays(3));
 		}
 	}
 
